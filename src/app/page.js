@@ -2,6 +2,7 @@ import Image from "next/image";
 import Banner from "./Components/Banner";
 import About from "./Components/About";
 import Services from "./Components/Service/Services";
+import Team from "./Components/Team";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
         </div>
       <div className="my-20">
           <Services></Services>
+        </div>
+      <div className="my-48">
+          <Team></Team>
         </div>
     </div>
   );
