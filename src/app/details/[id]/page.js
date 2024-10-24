@@ -15,11 +15,16 @@ if(!service){
  const {image,title,details} = service || {};
 
   return (
-    <div className=''>
+    <div className='my-10 max-w-[900px] mx-auto'>
       <Image
-        className='mx-auto rounded-md'
+        className='rounded-md mx-auto'
         src={image} width={900} height={200} alt='Legal Matter BD banner image'/>
-        <h1>hello</h1>
+        <div className='flex my-14 justify-center'>
+          <button className='border rounded-l rounded-tr-none border-[#030712] px-4 py-1 text-xl text-white bg-[#030712]'>English</button>
+          <button className='border roudr rounded-tl-none border-[#030712] px-4 py-1 text-xl text-[#030712]'>Bangla</button>
+        </div>
+       <h1 className='text-[#030712] font-bold text-7xl'>{title}</h1>
+        <p className='text-[#030712] text-lg mt-6'>{details}</p>
     </div>
   )
 }
