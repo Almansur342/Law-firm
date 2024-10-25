@@ -4,6 +4,7 @@ import About from "./Components/About";
 import Services from "./Components/Service/Services";
 import Team from "./Components/Team";
 import Vision from "./Components/Vision";
+import Blogs from "./Components/Blogs/Blogs";
 
 export default function Home() {
   return (
@@ -22,6 +23,9 @@ export default function Home() {
         </div>
       <div className="mt-80 mb-20">
           <Vision></Vision>
+        </div>
+      <div className="my-20">
+          <Blogs></Blogs>
         </div>
     </div>
   );
