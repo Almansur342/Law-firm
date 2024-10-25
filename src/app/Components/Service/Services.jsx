@@ -3,7 +3,6 @@ import { services } from '../../lib/services'
 import Service from './Service'
 
 export default function Services() {
-  console.log(services)
   return (
     <div className='max-w-[1200px] mx-auto'>
       <div className='text-center mb-9'>

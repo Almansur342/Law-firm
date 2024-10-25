@@ -3,6 +3,7 @@ import Banner from "./Components/Banner";
 import About from "./Components/About";
 import Services from "./Components/Service/Services";
 import Team from "./Components/Team";
+import Vision from "./Components/Vision";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
         </div>
       <div className="my-48">
           <Team></Team>
+        </div>
+      <div className="mt-80 mb-20">
+          <Vision></Vision>
         </div>
     </div>
   );
