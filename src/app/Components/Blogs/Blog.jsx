@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 import { MdArrowOutward } from "react-icons/md";
 
 export default function Blog({blog}) {
-  const {title,image,description} = blog || {}
+  const {title,image,description,id} = blog || {}
 
   const truncateTo40Words = (text) => {
     const words = text.split(" ");
@@ -27,7 +28,7 @@ export default function Blog({blog}) {
         {/* button */}
         <div>
         <button className="border border-[#030712] rounded-[40px] px-5 py-1 text-lg text-[#030712] flex items-center gap-2 ">
-          <span>Read More</span>
+          <Link href={`/blogDetails/${id}`}>Read More</Link>
           <span>
             <MdArrowOutward />
           </span>
