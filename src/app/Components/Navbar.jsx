@@ -32,7 +32,7 @@ export default function Navbar() {
     <div className='mt-5 flex items-center justify-between'>
       <div className='flex items-center gap-4'>
         <Image
-        src="/Images/Group 27259.png"
+        src="/Images/logoBlack.png"
         width={71}
         height={33}
          alt='Legal Matter BD Logo'/>

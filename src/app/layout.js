@@ -2,6 +2,7 @@ import { Inter_Tight } from 'next/font/google';
 import './globals.css';
 import Navbar from './Components/Navbar';
 import Banner from './Components/Banner';
+import Footer from './Components/Footer';
 
 // Load the Inter Tight font
 const interTight = Inter_Tight({
@@ -23,6 +24,9 @@ export default function RootLayout({ children }) {
            <Navbar></Navbar>
         </div>
         <div>{children}</div>
+        <div className='mt-20 bg-[#030712]'>
+          <Footer></Footer>
+        </div>
       </body>
     </html>
   );
