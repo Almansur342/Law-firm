@@ -42,7 +42,7 @@ export default function Navbar() {
         {
           navItems.map((item)=>(
             <a
-             className={`${item.path == pathName && "text-green-400"} text-lg text-[#030712] font-inter-tight`}
+             className={`${item.path == pathName && "text-green-500 font-semibold"} text-lg text-[#030712] font-inter-tight`}
              href={item.path}
              key={item.path} 
              >

@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { FaSquarePhone } from 'react-icons/fa6';
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [isChecked, setIsChecked] = useState(false);
@@ -8,6 +9,33 @@ export default function Contact() {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Send the email using emailjs
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, 
+        e.target,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID 
+      )
+      .then(
+        (result) => {
+          console.log("Email sent:", result.text);
+          alert("Email sent successfully!");
+        },
+        (error) => {
+          console.log("Error:", error.text);
+          alert("There was an error sending the email.");
+        }
+      );
+
+    // Reset the form
+    e.target.reset();
+  };
+
   return (
     <div className=''>
       <div className='max-w-[750px] mx-auto'>
@@ -21,8 +49,10 @@ export default function Contact() {
           <div className='border border-[#C4C4C4]' />
           <div className='border border-[#C4C4C4]' />
         </div>
+
         {/* form */}
         <div className='bg-[#F3F3F3] max-w-[700px] mx-auto p-8 rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <form onSubmit={sendEmail}>
           <div className='grid grid-cols-2'>
             <div className="w-full p-4">
               <label htmlFor="FIrst Name" className="text-lg font-medium text-[#030712]">
@@ -31,8 +61,10 @@ export default function Contact() {
               <input
                 type="text"
                 id="firstName"
+                name="first_name"
                 placeholder="Enter your first name"
                 className="mt-1 w-full p-3 text-sm border border-[#C4C4C4] shadow-sm focus:outline-none focus:border-indigo-500"
+               required
               />
             </div>
             <div className="w-full p-4">
@@ -42,8 +74,10 @@ export default function Contact() {
               <input
                 type="text"
                 id="lastName"
+                name="last_name"
                 placeholder="Enter your last name"
                 className="mt-1 w-full p-3 text-sm border border-[#C4C4C4]  shadow-sm focus:outline-none focus:border-indigo-500"
+                required
               />
             </div>
             <div className="w-full p-4">
@@ -53,8 +87,10 @@ export default function Contact() {
               <input
                 type="text"
                 id="email"
+                 name="user_email"
                 placeholder="Enter your email"
                 className="mt-1 w-full p-3 text-sm border border-[#C4C4C4] shadow-sm focus:outline-none focus:border-indigo-500"
+               required
               />
             </div>
             <div className="w-full p-4">
@@ -64,11 +100,13 @@ export default function Contact() {
               <input
                 type="number"
                 id="phone"
+                name="phone_number"
                 placeholder="Enter your phone number"
                 className="mt-1 w-full p-3 text-sm border border-[#C4C4C4]  shadow-sm focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
+
           {/* text area */}
           <div className="p-4 bg-gray-100 rounded-lg">
             {/* Label */}
@@ -80,10 +118,14 @@ export default function Contact() {
             <textarea
               rows={8}
               id="message"
+              name="message"
               placeholder="Your Message..."
               className="w-full  p-4 border border-[#C4C4C4] shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
             ></textarea>
           </div>
+
+          {/* button and check box */}
           <div className="flex items-center justify-between mt-4">
             {/* Checkbox and Label */}
             <div className="flex items-center gap-3">
@@ -93,6 +135,7 @@ export default function Contact() {
                 checked={isChecked}
                 onChange={handleCheckboxChange}
                 className="ml-4 w-5 h-5 text-indigo-600 border-[#030712] rounded"
+                required
               />
               <label htmlFor="terms" className="text-lg text-[#030712]">
                 I agree with Terms of Use and Privacy Policy
@@ -101,11 +144,13 @@ export default function Contact() {
 
             {/* Submit Button */}
             <button
+            type='submit'
               className="px-10 py-3 text-[#030712] text-lg border border-[#030712] rounded-full"
             >
               Send
             </button>
           </div>
+          </form>
         </div>
       </div>
       <div className='max-w-[1200px] mx-auto flex justify-between items-center py-10'>
