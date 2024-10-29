@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from './Components/Navbar';
 import Banner from './Components/Banner';
 import Footer from './Components/Footer';
+import Navbar2 from './Components/Navbar2';
 
 // Load the Inter Tight font
 const interTight = Inter_Tight({
@@ -20,9 +21,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={interTight.className}>
-        <div className='max-w-[1200px] mx-auto'>
-           <Navbar></Navbar>
-        </div>
+           {/* <Navbar></Navbar> */}
+           <Navbar2></Navbar2>
         <div>{children}</div>
         <div className='mt-20 bg-[#030712]'>
           <Footer></Footer>

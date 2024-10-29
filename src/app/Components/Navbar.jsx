@@ -38,11 +38,12 @@ export default function Navbar() {
          alt='Legal Matter BD Logo'/>
          <h3 className='font-medium text-2xl'>Legal Matter BD</h3>
       </div>
+
       <div className='flex items-center gap-8'>
         {
           navItems.map((item)=>(
             <a
-             className={`${item.path == pathName && "text-green-500 font-semibold"} text-lg text-[#030712] font-inter-tight`}
+             className={`${item.path == pathName && "text-green-500 font-semibold"} text-lg text-[#030712]`}
              href={item.path}
              key={item.path} 
              >

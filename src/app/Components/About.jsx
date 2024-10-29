@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div id='about' className='max-w-[1200px] mx-auto flex items-center py-10'>
+    <div className='max-w-[1200px] mx-auto flex items-center py-10'>
       <div className='w-1/2'>
       <div className='flex items-center gap-5'>
         <h3 className='text-xl text-[#FFFFFF]'>Who We Are</h3>
